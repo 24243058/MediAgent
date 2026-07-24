@@ -1,0 +1,633 @@
+/* ===========================
+   MediAgent Professional Theme
+=========================== */
+
+:root{
+    --primary:#0F766E;
+    --bg:#F8FAFC;
+    --card:#FFFFFF;
+    --text:#14231F;
+    --border:#E5E7EB;
+    --success:#22C55E;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+}
+
+/* Main App */
+
+html,
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"]{
+    background:var(--bg)!important;
+    color:var(--text)!important;
+}
+
+/* Main block */
+
+section.main > div{
+    background:var(--bg)!important;
+}
+
+/* Sidebar */
+
+[data-testid="stSidebar"]{
+    background:#ffffff!important;
+    border-right:1px solid var(--border);
+}
+
+/* Headings */
+
+h1,h2,h3,h4,h5,h6,p,label,span,small{
+    color:var(--text)!important;
+}
+
+/* Containers */
+
+div[data-testid="stVerticalBlock"]>div{
+    border-radius:16px;
+}
+
+/* Cards */
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    border:1px solid #E5E7EB;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    margin-bottom:15px;
+}
+
+/* Chat */
+
+div[data-testid="stChatMessage"]{
+
+    background:white!important;
+
+    border:1px solid #E5E7EB;
+
+    border-radius:18px;
+
+    padding:15px;
+
+    color:#14231F!important;
+}
+
+/* User bubble */
+
+.user-bubble{
+
+    background:#0F766E;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:14px;
+
+}
+
+/* AI bubble */
+
+.ai-bubble{
+
+    background:white;
+
+    color:#14231F;
+
+    padding:12px;
+
+    border-radius:14px;
+
+}
+
+/* Buttons */
+
+.stButton button{
+
+    background:#0F766E!important;
+
+    color:white!important;
+
+    border:none!important;
+
+    border-radius:12px!important;
+
+    padding:.6rem 1rem!important;
+
+}
+
+/* Inputs */
+
+input,
+textarea{
+
+    background:white!important;
+
+    color:#14231F!important;
+
+}
+
+/* File uploader */
+
+[data-testid="stFileUploader"]{
+
+    background:white;
+
+    border:2px dashed #0F766E;
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+/* Metrics */
+
+div[data-testid="stMetric"]{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    border:1px solid #E5E7EB;
+
+}
+
+/* Expanders */
+
+details{
+
+    background:white;
+
+    border-radius:12px;
+
+    border:1px solid #E5E7EB;
+
+    padding:10px;
+
+}
+
+/* Timeline */
+
+.timeline{
+
+    border-left:3px solid #0F766E;
+
+    margin-left:15px;
+
+    padding-left:20px;
+
+}
+
+.timeline-item{
+
+    margin-bottom:20px;
+
+    position:relative;
+
+}
+
+.timeline-item::before{
+
+    content:"";
+
+    width:14px;
+
+    height:14px;
+
+    background:#0F766E;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:-28px;
+
+    top:4px;
+
+}
+
+/* Success */
+
+.success{
+
+    background:#ECFDF5;
+
+    color:#166534;
+
+    padding:10px;
+
+    border-radius:10px;
+
+}
+
+/* Warning */
+
+.warning{
+
+    background:#FEF3C7;
+
+    color:#92400E;
+
+    padding:10px;
+
+    border-radius:10px;
+
+}
+
+/* Danger */
+
+.danger{
+
+    background:#FEE2E2;
+
+    color:#991B1B;
+
+    padding:10px;
+
+    border-radius:10px;
+
+}
+
+/* ===========================
+   New components: header, badges,
+   chat bubbles, agent timeline,
+   compact report cards
+=========================== */
+
+/* App header with status badge */
+.mg-app-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:linear-gradient(135deg, #0F766E, #0D9488);
+    padding:16px 22px;
+    border-radius:16px;
+    margin-bottom:16px;
+    box-shadow:0 6px 18px rgba(15,118,110,.20);
+}
+.mg-app-header .mg-title{
+    color:#FFFFFF!important;
+    font-size:21px;
+    font-weight:800;
+    margin:0;
+}
+.mg-app-header .mg-tagline{
+    color:#E6FFFA!important;
+    font-size:12.5px;
+    margin:0;
+}
+.mg-status-pill{
+    background:rgba(255,255,255,.15);
+    color:#FFFFFF!important;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+/* Risk badges */
+.risk-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 14px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+}
+.risk-badge.green{ background:#DCFCE7; color:#166534; }
+.risk-badge.yellow{ background:#FEF9C3; color:#854D0E; }
+.risk-badge.orange{ background:#FFEDD5; color:#9A3412; }
+.risk-badge.red{ background:#FEE2E2; color:#991B1B; }
+
+/* Small pill for tests/tags */
+.pill-tag{
+    display:inline-block;
+    background:#F1F5F9;
+    color:#334155;
+    border:1px solid #E2E8F0;
+    padding:3px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:600;
+    margin:2px 4px 2px 0;
+}
+
+/* Chat transcript */
+.chat-row{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    margin-bottom:14px;
+}
+.chat-row.user{ flex-direction:row-reverse; }
+.chat-avatar{
+    font-size:20px;
+    line-height:1;
+    padding-top:2px;
+}
+.chat-bubble-wrap{ max-width:78%; }
+.chat-bubble-wrap.user{ text-align:right; }
+.chat-label{
+    font-size:11px;
+    font-weight:700;
+    color:#64748B;
+    margin-bottom:3px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+}
+.chat-bubble{
+    display:inline-block;
+    padding:11px 15px;
+    border-radius:14px;
+    font-size:14.5px;
+    line-height:1.5;
+    text-align:left;
+}
+.chat-bubble.user{
+    background:#0F766E;
+    color:#FFFFFF;
+    border-bottom-right-radius:4px;
+}
+.chat-bubble.assistant{
+    background:#FFFFFF;
+    color:#14231F;
+    border:1px solid #E5E7EB;
+    border-bottom-left-radius:4px;
+}
+
+/* Agent activity timeline */
+.agent-timeline{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+}
+.agent-step{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:8px 0;
+    position:relative;
+}
+.agent-step .icon{
+    font-size:18px;
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#F0FDFA;
+    border:2px solid #0F766E;
+    border-radius:50%;
+    flex-shrink:0;
+}
+.agent-step .body{ padding-top:2px; }
+.agent-step .agent-name{
+    font-weight:700;
+    font-size:13.5px;
+    color:#14231F;
+}
+.agent-step .agent-status{
+    font-size:12px;
+    color:#16A34A;
+    font-weight:600;
+}
+.agent-connector{
+    margin-left:14px;
+    color:#CBD5E1;
+    font-size:14px;
+    line-height:1;
+}
+
+/* Compact report status card */
+.report-status-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    padding:10px 14px;
+}
+.report-status-card .name{
+    font-weight:700;
+    font-size:13px;
+}
+.report-status-card .status{
+    font-size:12px;
+    font-weight:700;
+}
+
+/* Report value card row */
+.report-value-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:8px 0;
+    border-bottom:1px dashed #E5E7EB;
+}
+.report-value-row:last-child{ border-bottom:none; }
+.report-value-row .marker{ font-weight:700; font-size:13.5px; }
+.report-value-row .value{ font-size:13.5px; color:#475569; }
+.report-value-row .status-tag{
+    font-size:11.5px;
+    font-weight:700;
+    padding:2px 9px;
+    border-radius:999px;
+}
+.report-value-row .status-tag.low{ background:#FEF9C3; color:#854D0E; }
+.report-value-row .status-tag.high{ background:#FEE2E2; color:#991B1B; }
+.report-value-row .status-tag.normal{ background:#DCFCE7; color:#166534; }
+
+/* Emergency navigation card */
+.emergency-nav-card{
+    background:#FEF2F2;
+    border:1px solid #FCA5A5;
+    border-radius:14px;
+    padding:16px 18px;
+}
+.emergency-nav-card .title{
+    color:#991B1B;
+    font-weight:800;
+    font-size:14px;
+    margin-bottom:8px;
+}
+.emergency-nav-card .hospital-name{
+    font-weight:700;
+    font-size:15px;
+    color:#14231F;
+}
+.emergency-nav-card .meta{
+    font-size:13px;
+    color:#475569;
+    margin:2px 0 10px 0;
+}
+.emergency-nav-card a.maps-btn{
+    display:inline-block;
+    background:#DC2626;
+    color:#FFFFFF!important;
+    text-decoration:none;
+    padding:7px 14px;
+    border-radius:8px;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* Booking card */
+.booking-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:14px;
+    padding:16px 18px;
+}
+.booking-card .doctor{
+    font-weight:800;
+    font-size:15px;
+    color:#14231F;
+}
+.booking-card .dept{
+    font-size:13px;
+    color:#0F766E;
+    font-weight:600;
+    margin-bottom:8px;
+}
+.booking-card .row{
+    font-size:13.5px;
+    color:#334155;
+    margin:2px 0;
+}
+.booking-card .confirmed-badge{
+    display:inline-block;
+    margin-top:8px;
+    background:#DCFCE7;
+    color:#166534;
+    padding:3px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* Focus-panel label (shows which intent is currently active) */
+.focus-label{
+    font-size:11px;
+    font-weight:700;
+    color:#0F766E;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    margin-bottom:6px;
+}
+
+/* Medication card */
+.medication-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:14px;
+    padding:16px 18px;
+}
+.medication-card .drug-name{
+    font-weight:800;
+    font-size:16px;
+    color:#14231F;
+    margin-bottom:2px;
+}
+.medication-card .category{
+    font-size:12.5px;
+    color:#0F766E;
+    font-weight:600;
+    margin-bottom:10px;
+}
+.medication-card .field-label{
+    font-size:11.5px;
+    font-weight:700;
+    color:#64748B;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    margin-top:8px;
+}
+.medication-card .field-value{
+    font-size:13.5px;
+    color:#334155;
+}
+.medication-card .otc-badge{
+    display:inline-block;
+    margin-top:10px;
+    padding:3px 10px;
+    border-radius:999px;
+    font-size:11.5px;
+    font-weight:700;
+}
+.medication-card .otc-badge.otc{ background:#DCFCE7; color:#166534; }
+.medication-card .otc-badge.rx{ background:#FEF3C7; color:#92400E; }
+
+/* Neutral (non-emergency) maps / nearby-hospitals card */
+.maps-card{
+    background:#EFF6FF;
+    border:1px solid #BFDBFE;
+    border-radius:14px;
+    padding:16px 18px;
+}
+.maps-card .title{
+    color:#1D4ED8;
+    font-weight:800;
+    font-size:14px;
+    margin-bottom:10px;
+}
+.maps-card .hospital-row{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:10px;
+    padding:10px 12px;
+    margin-bottom:8px;
+}
+.maps-card .hospital-row .name{ font-weight:700; font-size:13.5px; color:#14231F; }
+.maps-card .hospital-row .meta{ font-size:12px; color:#475569; margin:2px 0 6px 0; }
+.maps-card a.maps-btn{
+    display:inline-block;
+    background:#2563EB;
+    color:#FFFFFF!important;
+    text-decoration:none;
+    padding:5px 12px;
+    border-radius:8px;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* Knowledge card */
+.knowledge-card{
+    background:#FFFFFF;
+    border:1px solid #E5E7EB;
+    border-radius:14px;
+    padding:16px 18px;
+}
+.knowledge-card .answer{
+    font-size:13.5px;
+    color:#334155;
+    line-height:1.6;
+    margin-bottom:10px;
+}
+.knowledge-card .sources{
+    font-size:11.5px;
+    color:#94A3B8;
+}
+
+/* Idle placeholder */
+.idle-placeholder{
+    text-align:center;
+    padding:28px 16px;
+    color:#94A3B8;
+}
+.idle-placeholder .big-icon{
+    font-size:32px;
+    margin-bottom:8px;
+}
+.idle-placeholder p{
+    font-size:13px;
+    color:#94A3B8!important;
+}

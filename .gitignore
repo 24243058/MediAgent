@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+# Ignore generated vector database
+backend/rag/index/
+chroma_db/
+
+# Ignore Streamlit secrets
+.streamlit/secrets.toml
+
+# Ignore virtual environment
+venv/
+.venv/
